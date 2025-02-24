@@ -1,0 +1,26 @@
+name: carousel_interview
+packages:
+  - components/**
+  - widgetbook/**
+  - main_app/**
+
+scripts:
+  analyze:
+    exec: dart analyze .
+
+  # General commands
+  clean: melos exec -- "flutter clean"
+  get: melos exec -- "flutter pub get"
+  get:root: flutter pub get # Gets dependencies for root project
+
+  # Main app commands
+  main:build: cd main_app && flutter build
+  main:run: cd main_app && flutter pub get && flutter run
+  main:test: cd main_app && flutter test
+
+  # Widgetbook commands
+  widgetbook:build: cd widgetbook && flutter build
+  widgetbook:run: cd widgetbook && flutter pub get && flutter run
+
+  # Components commands
+  components:test: cd components && flutter test
