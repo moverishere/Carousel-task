@@ -31,7 +31,7 @@ class CarouselBannerSection extends StatelessWidget {
         MainCarousel.banner(
           items: [
             for (int index = 0; index < images.length; index++)
-               ImageCard(imageUrl: images[index]),
+              CarouselCard(imageUrl: images[index]),
           ],
           options: MainBannerCarouselOptions(height: 400),
         ),
@@ -49,7 +49,7 @@ class CarouselBannerSection extends StatelessWidget {
         MainCarousel.banner(
           items: [
             for (int index = 0; index < images.length; index++)
-              ImageCard(imageUrl: images[index]),
+              CarouselCard(imageUrl: images[index]),
           ],
           options: MainBannerCarouselOptions(
             height: 400,

@@ -33,7 +33,7 @@ class CarouselItemSection extends StatelessWidget {
         MainCarousel.item(
           items: [
             for (int index = 0; index < images.length; index++)
-              ImageCard(imageUrl: images[index]),
+              CarouselCard(imageUrl: images[index]),
           ],
           options: MainItemCarouselOptions(height: 400),
         ),
@@ -53,7 +53,7 @@ class CarouselItemSection extends StatelessWidget {
         MainCarousel.item(
           items: [
             for (int index = 0; index < images.length; index++)
-              ImageCard(imageUrl: images[index]),
+              CarouselCard(imageUrl: images[index]),
           ],
           options: MainItemCarouselOptions(
             height: 400,
@@ -77,7 +77,7 @@ class CarouselItemSection extends StatelessWidget {
         MainCarousel.item(
           items: [
             for (int index = 0; index < images.length; index++)
-              ImageCard(imageUrl: images[index], isCircular: true),
+              CarouselCard(imageUrl: images[index], isCircular: true),
           ],
           options: MainItemCarouselOptions(
             height: 150,

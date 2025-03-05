@@ -1,33 +1,31 @@
-import 'package:main_app/api/api.dart';
+import 'package:main_app/api/api_service.dart';
 
 class ContentRepository {
-  final ApiService api;
+  final IApiService api;
 
   ContentRepository({required this.api});
 
   Future<List<String>> getCollectionImages() async {
-    final rawCollections = await api.fetchCollections();
-    return rawCollections
-        .map<String>((e) => e["cover_image_url"] as String? ?? "")
-        .toList();
+    try {
+      final collections = await api.fetchCollections();
+      return collections
+          .map((collection) => collection.coverImageUrl)
+          .where((url) => url.isNotEmpty)
+          .toList();
+    } catch (e) {
+      rethrow;
+    }
   }
 
   Future<List<String>> getStoryImages() async {
-    final rawStories = await api.fetchStories();
-
-    return rawStories.map<String>((element) {
-      final storyMap = element['story'] as Map<String, dynamic>?;
-      if (storyMap == null) {
-        return '';
-      }
-
-      final itemMap = storyMap['item'] as Map<String, dynamic>?;
-      if (itemMap == null) {
-        return '';
-      }
-
-      final coverSrc = itemMap['cover_src'] as String? ?? '';
-      return coverSrc;
-    }).toList();
+    try {
+      final stories = await api.fetchStories();
+      return stories
+          .map((story) => story.coverSrc)
+          .where((url) => url.isNotEmpty)
+          .toList();
+    } catch (e) {
+      rethrow;
+    }
   }
 }
